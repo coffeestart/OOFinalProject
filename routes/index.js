@@ -3,7 +3,27 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('Turnkey', { title: 'Express' });
+    res.render('Turnkey', { title: 'Index' });
+});
+
+router.get('/MiTMSTP2AP01', function(req, res, next) {
+  res.render('MiTMSTP2AP01', { title: 'MiTMSTP2AP01' });
+});
+
+router.get('/MiTMSTP2NFS', function(req, res, next) {
+  res.render('MiTMSTP2NFS', { title: 'MiTMSTP2NFS' });
+});
+
+router.get('/Turnkey', function(req, res, next) {
+  res.render('Turnkey', { title: 'Turnkey' });
+});
+
+router.get('/TurnkeyLogTask', function(req, res, next) {
+  res.render('TurnkeyLogTask', { title: 'TurnkeyLogTask' });
+});
+
+router.get('/WriteInvoiceInfoTask', function(req, res, next) {
+  res.render('WriteInvoiceInfoTask', { title: 'WriteInvoiceInfoTask' });
 });
 
 module.exports = router;

@@ -71,6 +71,7 @@ $.ajax({
 	if((nowTime-lastdatatime)/60000 > scheduleTime*3){
 		setTimeout(function(){ play() }, 1000);
 		}else{}
+
 		
 $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,function(index,value))
 													  或者是   .each(對象,function(key,value)) 
