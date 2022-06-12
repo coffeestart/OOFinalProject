@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+//const welcome = require('../public/js/welcome');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('Turnkey', { title: 'Index' });
+    res.render('Turnkey', { 
+      title: 'Index',
+    });
 });
 
 router.get('/MiTMSTP2AP01', function(req, res, next) {
@@ -15,7 +18,9 @@ router.get('/MiTMSTP2NFS', function(req, res, next) {
 });
 
 router.get('/Turnkey', function(req, res, next) {
-  res.render('Turnkey', { title: 'Turnkey' });
+  res.render('Turnkey', { 
+    title: 'Index', 
+  });
 });
 
 router.get('/TurnkeyLogTask', function(req, res, next) {

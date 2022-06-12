@@ -24,6 +24,12 @@ var turnkey_Schedule_Name="Turnkey";
 //設定排程時間
 var turnkey_RepeatTime=5.084;
 
+//loop次數
+var loop_time=0;
+
+//控制音樂撥放
+var aud_state=0;
+
 
 //		檔案監控
 
@@ -40,20 +46,45 @@ var MiTMS_TP2NFS_ThingId="33";
 
 
 function TurnkeyLogTask(){
+	aud_state=0
+	loop_time=0;
 	tableAjax(turnkeyLogTask_Schedule_Name,turnkeyLogTask_Url,turnkeyLogTask_DatastreamsId,turnkeyLogTask_RepeatTime);
 }
 function WriteInvoiceInfoTask(){
+	aud_state=0
+	loop_time=0;
 	tableAjax(writeInvoiceInfoTask_Schedule_Name,writeInvoiceInfoTask_Url,writeInvoiceInfoTask_DatastreamsId,writeInvoiceInfoTask_RepeatTime);
 } 
 function Turnkey(){
+	aud_state=0
+	loop_time=0;
 	tableAjax(turnkey_Schedule_Name,turnkey_Url,turnkey_DatastreamsId,turnkey_RepeatTime);
 }
 function MiTMSTP2AP01(){
+	aud_state=0
+	loop_time=0;
 	fileAjax(MiTMS_TP2AP01_Url,MiTMS_TP2AP01_ThingId);
 }
 function MiTMSTP2NFS(){
+	aud_state=0
+	loop_time=0;
 	fileAjax(MiTMS_TP2NFS_Url,MiTMS_TP2NFS_ThingId)
 }
+function AudState(){
+	aud_state = !aud_state;
+	return aud_state;
+}
+function playPause() {    
+    var music = document.getElementById('myAudio');       
+    if (music.paused){    
+        music.play();
+		music.src = music.src;    
+    }    
+    else{    
+        music.pause();
+		music.src ='';    
+    }    
+}   
 function tableAjax(name,url,dsId,scheduleTime){
 var nowTime=new Date().valueOf();
 var dt;
@@ -80,7 +111,8 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
 															age: '2'
 													  	  } 
 															name age->key   1 2 ->value
-													  */											
+													  */			
+	loop_time++;								
 	date=new Date(value.phenomenonTime);
 	
 	dt=(nowTime-date.valueOf())/60000;
@@ -88,6 +120,9 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
     
 	nowTime=date.valueOf();
 	if(dt>(scheduleTime*3)){
+		if(loop_time = 0){
+			aud_state=0;
+		}
 		color="tomato";
 	}else if(dt>scheduleTime){
 		color="yellow";
