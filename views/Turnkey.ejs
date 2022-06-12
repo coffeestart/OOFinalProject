@@ -22,17 +22,49 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <!--   刷新頁面 content=秒數 -->
   <meta http-equiv="refresh" content="600">
+
 </head>
 
 <body class="sticky-footer bg-dark" id="page-top">
+  <!-- 宣告變數-->
+  <script>var aud_state = 0; </script>
+  <script type="text/javascript">
+    /*$(".jq-addNum").click(function () {
+      playPause()
+    });*/
+    var snd = new Audio();
+    snd.src ="/aud/alarms01.mp3";
+    snd.loop = true; //設定循環播放
+    //snd.play();
+    var snd_state = 0;
 
+    //停止
+    function SndControl(){
+      if(snd_state){
+        snd_state = !snd_state;
+        snd.pause();
+        snd.currentTime = 0;
+      }
+      else{
+        snd_state = !snd_state;
+        snd.play();
+      }
+        
+    }
+  </script>
 
   <!-- Navigation-->
-  
-  <audio id="myAudio" autoplay>
-  <source src="/aud/alarms01.mp3" type="audio/mpeg">
-  </audio>
-  
+  <script type="text/javascript">
+    $(function(){
+      aud_state = AudState();
+        })
+  </script>
+  <!--
+    <audio id="myAudio">
+    <source src="/aud/alarms01.mp3" type="audio/mpeg">
+    </audio>
+  -->
+
   <!-- Navigation-->
 
 <!--   <div class="content-wrapper"> -->
@@ -51,6 +83,9 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Turnkey排程監控</div>
+          <i><input type="button" id="jq-addNum"value="是否開啟音樂" onclick="SndControl();"></i>
+          
+          <i><input type="button" value="連結名稱" onclick="location.href='http://localhost:3000/'"></i>
         <div class="card-body">
           <div class="table-responsive">
           <script type="text/javascript">
