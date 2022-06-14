@@ -25,8 +25,40 @@
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
+  <!-- 宣告變數-->
+  <script>var aud_state = 0; </script>
+  <script type="text/javascript">
+    /*$(".jq-addNum").click(function () {
+      playPause()
+    });*/
+    var snd = new Audio();
+    snd.src ="/aud/alarms01.mp3";
+    snd.loop = true; //設定循環播放
+    //snd.play();
+    var snd_state = 0;
+
+    //停止
+    function SndControl(){
+      if(snd_state){
+        snd_state = !snd_state;
+        snd.pause();
+        snd.currentTime = 0;
+      }
+      else{
+        snd_state = !snd_state;
+        snd.play();
+      }
+        
+    }
+  </script>
+
   <!-- Navigation-->
 
+  <script type="text/javascript">
+    $(function(){
+      aud_state = AudState();
+        })
+  </script>
 <!--   <div class="content-wrapper"> -->
     <div class="container-fluid">
 <!--     CHART -->
@@ -50,8 +82,17 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table">MiTMS TP2AP01</i>
-          <button_type><button type="button" class="btn btn-outline-dark">撥放音樂</button></button_type>
-          <!--<table>
+          <button_type>
+            <input type="button" id="jq-addNum"value="開/關音樂" onclick="SndControl();">
+            <input type="button" value="重新整理網頁" onclick="location.href='http:/\/localhost:3000/MiTMSTP2AP01'">
+          </button_type>
+          
+          <!--
+          <i><input type="button" id="jq-addNum"value="是否開啟音樂" onclick="SndControl();"></i>
+          
+          <i><input type="button" value="連結名稱" onclick="location.href='http://localhost:3000/'"></i>
+            
+          <table>
           <tr>
           <td><i class="fa fa-table">MiTMS TP2AP01</i></td>
           <td><div class=""><button_type><button type="button" class="btn btn-outline-dark">撥放音樂</button></button_type></div></td>
