@@ -30,8 +30,18 @@
   <script>var aud_state = 0; </script>
    <!-- 抓table -->
   <script type="text/javascript">
-     var table=document.getElementById('dataTable');
-     
+     function GetDataValue(){
+      //var table=document.getElementById('TurnkeyLogTask');
+      //var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.value;
+      var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
+      //var DColor=getComputedStyle(DataValue).color
+      console.log("DV"+DataValue);
+      // if(DataValue == 'background-color:tomato'){
+      //   console.log("GET");
+      // }
+      //console.log("Table:"+table+" DataValue:"+DataValue.style);
+      //console.log("Table:"+table.valueOf());
+     }
   </script>
   <!--  音樂控制 -->
   <script type="text/javascript">
@@ -91,7 +101,7 @@
         <div class="card-header">
           <i class="fa fa-table"></i> Turnkey排程監控</div>
           <i><input type="button" id="jq-addNum"value="是否開啟音樂" onclick="SndControl();"></i>
-          
+          <i><input type="button" id="jq-addNum"value="DataGet" onclick="GetDataValue();"></i>
           <i><input type="button" value="連結名稱" onclick="location.href='http://localhost:3000/'"></i>
         <div class="card-body">
           <div class="table-responsive">
