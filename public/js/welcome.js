@@ -98,7 +98,7 @@ $.ajax({     //抓時間
    dataType:"json",
    type:"GET"
 }).done(function(response){
-	console.log("response:"+response.Observations[0]["phenomenonTime"].valueOf());
+	console.log("response:"+response.Observations[1]["phenomenonTime"].valueOf());
 	lastdatatime=new Date(response.Observations[0]["phenomenonTime"]).valueOf();
 	if((nowTime-lastdatatime)/60000 > scheduleTime*3){
 		setTimeout(function(){ play() }, 1000);
