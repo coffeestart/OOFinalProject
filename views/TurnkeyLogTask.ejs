@@ -23,13 +23,19 @@
   <meta http-equiv="refresh" content="600">
 </head>
 
+
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
-    <audio id="myAudio" preload="auto">
-  <source src="/aud/alarms01.mp3" type="audio/mpeg">
-  </audio>
+  <!-- 宣告變數-->
+
+
   <!-- Navigation-->
 
+  <script type="text/javascript">
+    $(function(){
+      aud_state = AudState();
+        })
+  </script>
 <!--   <div class="content-wrapper"> -->
     <div class="container-fluid">
 <!--     CHART -->
@@ -39,8 +45,8 @@
 <!--         <div class="card-body"> -->
 <!--           <canvas id="myAreaChart" width="100%" height="30"></canvas> -->
 <!--         </div> -->
-<!-- <!--         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
-<!--       </div> -->
+<!--         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+      </div>
       <!-- Breadcrumbs-->
 <!--       <ol class="breadcrumb"> -->
 <!--         <li class="breadcrumb-item"> -->
@@ -52,7 +58,12 @@
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> MiINV-Log批次</div>
+          <i class="fa fa-table"></i> MiINV-Log批次
+          <button_type>
+            <input type="button" id="jq-addNum"value="開/關音樂" onclick="SndControl();">
+            <input type="button" value="重新整理網頁" onclick="location.href='http:/\/localhost:3000/TurnkeyLogTask'">
+          </button_type>
+        </div>
         <div class="card-body">
           <div class="table-responsive">
           <script type="text/javascript">
