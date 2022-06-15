@@ -92,12 +92,13 @@ var date;
 var tempDate;
 var tempTime;
 var color;
-$.ajax({
+$.ajax({     //抓時間
    async:false,
    url:""+url+"/Datastreams("+dsId+")?$expand=Observations($select=phenomenonTime,result)",
    dataType:"json",
    type:"GET"
 }).done(function(response){
+	console.log("response:"+response.Observations[0]["phenomenonTime"].valueOf());
 	lastdatatime=new Date(response.Observations[0]["phenomenonTime"]).valueOf();
 	if((nowTime-lastdatatime)/60000 > scheduleTime*3){
 		setTimeout(function(){ play() }, 1000);
@@ -111,12 +112,11 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
 															age: '2'
 													  	  } 
 															name age->key   1 2 ->value
-													  */			
+													  */										 			
 	loop_time++;								
 	date=new Date(value.phenomenonTime);
 	
 	dt=(nowTime-date.valueOf())/60000;
-//	console.log("dt"+dt)
     
 	nowTime=date.valueOf();
 	if(dt>(scheduleTime*3)){
@@ -124,6 +124,7 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
 			aud_state=0;
 		}
 		color="tomato";
+		console.log("A");
 	}else if(dt>scheduleTime){
 		color="yellow";
 	}else if(dt<=scheduleTime){
@@ -150,6 +151,7 @@ $.ajax({
 dataType:"json",
 type:"GET"	
 }).done(function(response){
+	console.log("A");
 	$.each(response.Datastreams,function(key,value){
 	$.each(value.Observations,function(ObsKey,ObsValue){
 		date=new Date(ObsValue.phenomenonTime);
