@@ -30,6 +30,8 @@ var loop_time=0;
 //控制音樂撥放
 var aud_state=0;
 
+//第一排是否為紅色
+var fristDataColor = 0;
 
 //		檔案監控
 
@@ -92,13 +94,16 @@ var date;
 var tempDate;
 var tempTime;
 var color;
+
+var closekey = 0;
+
 $.ajax({     //抓時間
    async:false,
    url:""+url+"/Datastreams("+dsId+")?$expand=Observations($select=phenomenonTime,result)",
    dataType:"json",
    type:"GET"
 }).done(function(response){
-	console.log("response:"+response.Observations[1]["phenomenonTime"].valueOf());
+	console.log("response:"+response.Observations[0]["phenomenonTime"].valueOf());
 	lastdatatime=new Date(response.Observations[0]["phenomenonTime"]).valueOf();
 	if((nowTime-lastdatatime)/60000 > scheduleTime*3){
 		setTimeout(function(){ play() }, 1000);
@@ -119,6 +124,14 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
 	dt=(nowTime-date.valueOf())/60000;
     
 	nowTime=date.valueOf();
+	if(dt>(scheduleTime*3) && closekey == 0){
+		fristDataColor = 1;
+		closekey = 1;
+
+	}
+	else if (closekey == 0){
+		closekey = 1;
+	}
 	if(dt>(scheduleTime*3)){
 		if(loop_time = 0){
 			aud_state=0;
@@ -170,5 +183,15 @@ type:"GET"
 function play(){
 	var x = document.getElementById("myAudio");
 	x.play();
+}
+
+function SndControl(){
+  var snd = new Audio();
+  snd.src ="/aud/alarms01.mp3";
+  snd.loop = true; //設定循環播放
+  //snd.play();
+	if(fristDataColor){
+		snd.play();
+	}
 }
 
