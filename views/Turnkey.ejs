@@ -26,56 +26,52 @@
 </head>
 
 <body class="sticky-footer bg-dark" id="page-top">
-  <!-- 宣告變數-->
-  <script>var aud_state = 0; </script>
-   <!-- 抓table -->
+  <!-- 宣告變數
+  <script>var aud_state = 1; </script>
+  -->
+   <!-- 抓table 
   <script type="text/javascript">
-     function GetDataValue(){
-      //var table=document.getElementById('TurnkeyLogTask');
-      //var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.value;
-      var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
-      //var DColor=getComputedStyle(DataValue).color
-      console.log("DV"+DataValue);
-      // if(DataValue == 'background-color:tomato'){
-      //   console.log("GET");
-      // }
-      //console.log("Table:"+table+" DataValue:"+DataValue.style);
-      //console.log("Table:"+table.valueOf());
-     }
+    //  function GetDataValue(){
+    //   var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
+    //   //console.log("DV"+DataValue);
+    //   if(DataValue == "tomato" && snd_state){
+    //     snd.play();
+    //   }
+    //   else{
+    //     snd.pause();
+    //     snd.currentTime = 0;
+    //   }
+    //  }
   </script>
-  <!--  音樂控制 -->
+  -->
+
+  <!--  音樂控制 
   <script type="text/javascript">
     /*$(".jq-addNum").click(function () {
       playPause()
     });*/
-    var snd = new Audio();
-    snd.src ="/aud/alarms01.mp3";
-    snd.loop = true; //設定循環播放
-    //snd.play();
-    var snd_state = 0;
+    // var snd = new Audio();
+    // snd.src ="/aud/alarms01.mp3";
+    // snd.loop = true; //設定循環播放
+    // //snd.play();
+    // var snd_state = 0;
 
-    //停止
-    function SndControl(){
-      if(snd_state){
-        snd_state = !snd_state;
-        snd.pause();
-        snd.currentTime = 0;
-      }
-      else{
-        snd_state = !snd_state;
-        snd.play();
-      }
+    // //停止
+    // function SndControl(){
+    //   if(snd_state){
+    //     snd_state = !snd_state;
+    //   }
+    //   else{
+    //     snd_state = !snd_state;
+    //   }
         
-    }
+    // }
   </script>
+  -->
 
   <!-- Navigation-->
 
-  <script type="text/javascript">
-    $(function(){
-      aud_state = AudState();
-        })
-  </script>
+
   <!--
     <audio id="myAudio">
     <source src="/aud/alarms01.mp3" type="audio/mpeg">
@@ -100,9 +96,9 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Turnkey排程監控</div>
-          <i><input type="button" id="jq-addNum"value="是否開啟音樂" onclick="SndControl();"></i>
-          <i><input type="button" id="jq-addNum"value="DataGet" onclick="GetDataValue();"></i>
-          <i><input type="button" value="連結名稱" onclick="location.href='http://localhost:3000/'"></i>
+          <!--<i><input type="button" id="jq-addNum"value="是否開啟音樂" onclick="SndControl();"></i>-->
+          <i><input type="button" id="jq-addNum"value="開啟音樂" onclick="playmusic();"></i>
+          <i><input type="button" value="連結名稱" onclick="location.href='https:/\/oofinalproject.herokuapp.com/'"></i>
         <div class="card-body">
           <div class="table-responsive">
           <script type="text/javascript">

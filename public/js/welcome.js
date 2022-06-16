@@ -106,7 +106,7 @@ $.ajax({     //抓時間
 	console.log("response:"+response.Observations[0]["phenomenonTime"].valueOf());
 	lastdatatime=new Date(response.Observations[0]["phenomenonTime"]).valueOf();
 	if((nowTime-lastdatatime)/60000 > scheduleTime*3){
-		setTimeout(function(){ play() }, 1000);
+		setTimeout(function(){ playmusic() }, 1000);
 		}else{}
 
 		
@@ -180,18 +180,33 @@ type:"GET"
 
 })	
 }
-function play(){
-	var x = document.getElementById("myAudio");
-	x.play();
-}
 
-function SndControl(){
-  var snd = new Audio();
-  snd.src ="/aud/alarms01.mp3";
-  snd.loop = true; //設定循環播放
-  //snd.play();
-	if(fristDataColor){
-		snd.play();
+var snd = new Audio();
+snd.src ="/aud/alarms01.mp3";
+snd.loop = true; //設定循環播放
+function playmusic(){
+	var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
+	//console.log("DV"+DataValue);
+	if(DataValue == "tomato"){
+	  snd.play();
+	}
+	else{
+	  snd.pause();
+	  snd.currentTime = 0;
 	}
 }
+
+
+// var snd_state = 0;
+
+// //停止
+// function SndControl(){
+//     if(snd_state){
+//     	snd_state = !snd_state;
+//     }
+//     else{
+//         snd_state = !snd_state;
+//     }
+        
+// }
 
