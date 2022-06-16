@@ -34,4 +34,8 @@ router.get('/WriteInvoiceInfoTask', function(req, res, next) {
 router.get('/index', function(req, res, next) {
   res.render('index', { title: 'index' });
 });
+
+router.get('/index_test', function(req, res, next) {
+  res.render('index_test', { title: 'index_test' });
+});
 module.exports = router;
