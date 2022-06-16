@@ -45,6 +45,21 @@ var MiTMS_TP2NFS_Url="https://evmiogc.micloud.tw/v1.0";
 //ThingsId
 var MiTMS_TP2NFS_ThingId="33";
 
+//音樂控制相關
+var snd_state = 0;
+var snd = new Audio();
+snd.src ="/aud/alarms01.mp3";
+snd.loop = true; //設定循環播放
+const SndRand = [
+	'/aud/alarms01.mp3',
+	'/aud/Wake.mp3',
+	'/aud/三無 - 本色.mp3',
+	'/aud/白金ディスコ.mp3',
+	'/aud/Renai_Circulation.mp3',
+	'/aud/あくあ色ぱれっと.mp3',
+	'/aud/グッバイ宣言.mp3',
+	'/aud/ディスコミュ星人.mp3'
+];
 
 
 function TurnkeyLogTask(){
@@ -181,19 +196,24 @@ type:"GET"
 })	
 }
 
-var snd = new Audio();
-snd.src ="/aud/alarms01.mp3";
-snd.loop = true; //設定循環播放
+
 function playmusic(){
 	var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
 	//console.log("DV"+DataValue);
-	if(DataValue == "tomato"){
+	if(DataValue == "tomato" && snd_state){
+	  snd.src = SndRand[GetRandom()];
+	  snd_state = !snd_state;
 	  snd.play();
 	}
 	else{
+	  snd_state = !snd_state;
 	  snd.pause();
 	  snd.currentTime = 0;
 	}
+}
+
+function GetRandom(){
+	return Math.floor(Math.random()*4);  //只random前4個 後面太油了
 }
 
 
