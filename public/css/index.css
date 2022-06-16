@@ -17,19 +17,20 @@
 }
  .demo {
 	 position: absolute;
+     z-index: 2;
 	 /*top: 50%;
 	 left: 50%;*/
 	 margin-top: 0rem;
 	 margin-right: 0rem;
-	 width: 42.9rem;   /*4*/
+	 width: 42.9rem;   
 	 height: 71.5rem;
-	 box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);
+	 /*box-shadow: 0 1rem 5rem rgba(0, 0, 0, 0.3);*/
 }
  .static {
 	 height: 100%;
 	 font-size: 1.8rem;
 	 font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-	 background: #6d7ada;
+     background-color: rgba(255,255,255,0);
 }
  .static:before, .static:after {
 	 content: "";
