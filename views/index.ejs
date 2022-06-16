@@ -1,11 +1,138 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>index</title>
+  <!-- Bootstrap core CSS-->
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="/css/sb-admin.css" rel="stylesheet">
+  
+  <script type="text/javascript" src="./js/welcome.js"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!--   刷新頁面 content=秒數 -->
+  <meta http-equiv="refresh" content="600">
+
+</head>
+
+<body class="sticky-footer bg-dark" id="page-top">
+  <!-- 宣告變數
+  <script>var aud_state = 1; </script>
+  -->
+   <!-- 抓table 
+  <script type="text/javascript">
+    //  function GetDataValue(){
+    //   var DataValue=document.querySelector("#TurnkeyLogTask > tr:nth-child(1)").style.backgroundColor;
+    //   //console.log("DV"+DataValue);
+    //   if(DataValue == "tomato" && snd_state){
+    //     snd.play();
+    //   }
+    //   else{
+    //     snd.pause();
+    //     snd.currentTime = 0;
+    //   }
+    //  }
+  </script>
+  -->
+
+  <!--  音樂控制 
+  <script type="text/javascript">
+    /*$(".jq-addNum").click(function () {
+      playPause()
+    });*/
+    // var snd = new Audio();
+    // snd.src ="/aud/alarms01.mp3";
+    // snd.loop = true; //設定循環播放
+    // //snd.play();
+    // var snd_state = 0;
+
+    // //停止
+    // function SndControl(){
+    //   if(snd_state){
+    //     snd_state = !snd_state;
+    //   }
+    //   else{
+    //     snd_state = !snd_state;
+    //   }
+        
+    // }
+  </script>
+  -->
+
+  <!-- Navigation-->
+
+
+  <!--
+    <audio id="myAudio">
+    <source src="/aud/alarms01.mp3" type="audio/mpeg">
+    </audio>
+  -->
+
+  <!-- Navigation-->
+
+<!--   <div class="content-wrapper"> -->
+    <div class="container-fluid">
+
+      </div>
+      <!-- Breadcrumbs-->
+<!--       <ol class="breadcrumb"> -->
+<!--         <li class="breadcrumb-item"> -->
+<!--           <a href="#">Dashboard</a> -->
+<!--         </li> -->
+<!--         <li class="breadcrumb-item active">Tables</li> -->
+<!--       </ol> -->
+      
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> index
+            <button_type>
+              <input type="button" id="jq-addNum"value="開/關音樂" onclick="playmusic();">
+              <input type="button" value="重新整理網頁" onclick="location.href='https:/\/oofinalproject.herokuapp.com/Turnkey'">
+              <input type="button" value="回到主頁面" onclick="location.href='https:/\/oofinalproject.herokuapp.com/index'">
+            </button_type>
+          </div>
+        <div class="card-body">
+          <div class="table-responsive">
+          <script type="text/javascript">
+          $(function(){ //DOM Ready
+              gridster({
+                widget_margins: [10, 10],
+                widget_base_dimensions: [140, 140]
+            });
+
+          });
+          </script>
+            <div class="gridster">
+              <ul>
+                  <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">123</li>
+                  <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">456</li>
+                  <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+          
+                  <li data-row="1" data-col="2" data-sizex="2" data-sizey="1">123</li>
+                  <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
+          
+                  <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
+                  <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
+                  <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
+          
+                  <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
+                  <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
+          
+                  <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
+                  <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
+              </ul>
+          </div>
+</body>
+
 </html>
