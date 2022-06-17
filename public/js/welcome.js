@@ -1,3 +1,5 @@
+
+
 //		排程監控
 
 //IP
@@ -229,7 +231,6 @@ function GetRandom(){
 
 function ChangeMode(){
 	snd_mode = !snd_mode;
-	console.log("Mode: "+snd_mode);
 }
 // var snd_state = 0;
 
