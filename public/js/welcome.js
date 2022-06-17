@@ -47,6 +47,7 @@ var MiTMS_TP2NFS_ThingId="33";
 
 //音樂控制相關
 var snd_state = 0;
+var snd_mode = 0;
 var snd = new Audio();
 snd.src ="/aud/alarms01.mp3";
 snd.loop = true; //設定循環播放
@@ -54,6 +55,7 @@ const SndRand = [
 	'/aud/alarms01.mp3',
 	'/aud/Wake.mp3',
 	'/aud/三無 - 本色.mp3',
+	'/aud/幻化成風_貓的報恩.mp3',
 	'/aud/白金ディスコ.mp3',
 	'/aud/Renai_Circulation.mp3',
 	'/aud/あくあ色ぱれっと.mp3',
@@ -213,10 +215,17 @@ function playmusic(){
 }
 
 function GetRandom(){
-	return Math.floor(Math.random()*4);  //只random前4個 後面太油了
+	if(snd_mode){
+		return Math.floor((Math.random()*4)+5); //後面5首
+	}
+	else{
+		return Math.floor(Math.random()*4);  //只random前4個 後面太油了
+	}
 }
 
-
+function ChangeMode(){
+	snd_mode = !snd_mode;
+}
 // var snd_state = 0;
 
 // //停止
