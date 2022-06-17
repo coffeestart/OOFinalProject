@@ -75,6 +75,7 @@ function WriteInvoiceInfoTask(){
 	tableAjax(writeInvoiceInfoTask_Schedule_Name,writeInvoiceInfoTask_Url,writeInvoiceInfoTask_DatastreamsId,writeInvoiceInfoTask_RepeatTime);
 } 
 function Turnkey(){
+	console.log("Mode: "+snd_mode);
 	aud_state=0
 	loop_time=0;
 	tableAjax(turnkey_Schedule_Name,turnkey_Url,turnkey_DatastreamsId,turnkey_RepeatTime);
@@ -137,7 +138,6 @@ $.each(response.Observations,function(key,value){     /*jQuery  .each(arr,functi
 													  */										 			
 	loop_time++;								
 	date=new Date(value.phenomenonTime);
-	
 	dt=(nowTime-date.valueOf())/60000;
     
 	nowTime=date.valueOf();
@@ -225,6 +225,7 @@ function GetRandom(){
 
 function ChangeMode(){
 	snd_mode = !snd_mode;
+	console.log("Mode: "+snd_mode);
 }
 // var snd_state = 0;
 
