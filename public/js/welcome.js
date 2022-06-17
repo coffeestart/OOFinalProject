@@ -53,6 +53,10 @@ snd.src ="/aud/alarms01.mp3";
 snd.loop = true; //設定循環播放
 const SndRand = [
 	'/aud/alarms01.mp3',
+	'/aud/aLIEz.mp3',
+	'/aud/Believer.mp3',
+	'/aud/Sold_Out.mp3',
+	'/aud/If_you_see_me_calling.mp3',
 	'/aud/Wake.mp3',
 	'/aud/三無 - 本色.mp3',
 	'/aud/幻化成風_貓的報恩.mp3',
@@ -216,10 +220,10 @@ function playmusic(){
 
 function GetRandom(){
 	if(snd_mode){
-		return Math.floor((Math.random()*4)+5); //後面5首
+		return Math.floor((Math.random()*9)+4); //後面8首
 	}
 	else{
-		return Math.floor(Math.random()*4);  //只random前4個 後面太油了
+		return Math.floor(Math.random()*4);  //只random前5個
 	}
 }
 
